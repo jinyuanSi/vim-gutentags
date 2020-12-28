@@ -88,7 +88,7 @@ function! gutentags#gtags_cscope#generate(proj_dir, tags_file, gen_opts) abort
         let l:proj_options = readfile(l:proj_options_file)
         let l:cmd += l:proj_options
     endif
-    let l:cmd += ['--incremental', '"'.l:db_path.'"']
+    let l:cmd += ['--incremental', '--skip-unreadable', '"'.l:db_path.'"']
     let l:cmd = gutentags#make_args(l:cmd)
 
     call gutentags#trace("Running: " . string(l:cmd))
